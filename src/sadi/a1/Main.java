@@ -95,6 +95,7 @@ public class Main {
                                 studentEnrollManager.add(studentEnrollment1);
                                 break;
                             default:
+                                System.out.println("Back to main menu...");
                                 break;
                         }
                     }
