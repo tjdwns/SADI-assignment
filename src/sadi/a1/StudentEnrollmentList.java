@@ -6,9 +6,13 @@ import java.util.List;
 public class StudentEnrollmentList implements StudentEnrollManager{
     private List<StudentEnrollment> studentEnrollments = new ArrayList<>();
 
-    @Override
-    public void add() {
+    public List<StudentEnrollment> getStudentEnrollments() {
+        return studentEnrollments;
+    }
 
+    @Override
+    public void add(StudentEnrollment studentEnrollment) {
+        studentEnrollments.add(studentEnrollment);
     }
 
     @Override
@@ -17,8 +21,8 @@ public class StudentEnrollmentList implements StudentEnrollManager{
     }
 
     @Override
-    public void delete() {
-
+    public void delete(StudentEnrollment studentEnrollment) {
+        studentEnrollments.remove(studentEnrollment);
     }
 
     @Override
