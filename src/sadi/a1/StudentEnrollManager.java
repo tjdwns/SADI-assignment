@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface StudentEnrollManager {
     public void add(StudentEnrollment studentEnrollment);
-    public void update();
+    public void update(StudentEnrollment studentEnrollment);
     public void delete(StudentEnrollment studentEnrollment);
     public List getAll();
     public String getOne();

@@ -1,6 +1,12 @@
 package sadi.a1;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Main {
 
@@ -56,26 +62,27 @@ public class Main {
                         System.out.print("Enter the semester you are in: ");
                         String semester = scan2.nextLine();
                         System.out.println();
-                        for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getStudentEnrollments()) {
+                        for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
                             if (studentEnrollment1.getStudent().getId().equals(sId) && studentEnrollment1.getSemester().equals(semester)) {
                                 System.out.println(studentEnrollment1);
                             }
                         }
-                        System.out.print("\nWhat do you want to do?\n1. Delete\n2. Add\nEnter a number of the option: ");
+                        System.out.print("\nWhat do you want to do?\n1. Delete\n2. Add\n0. Back to menu\nEnter a number of the option: ");
                         int option2 = scan2.nextInt();
                         switch (option2) {
                             //Delete function
+                            case 0:
+                                System.out.println("Back to main menu...");
+                                break;
                             case 1:
                                 Scanner scan3 = new Scanner(System.in);
                                 System.out.print("Choose course to delete: ");
                                 String courseName = scan3.nextLine();
-                                for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getStudentEnrollments()) {
+                                for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
                                     if (studentEnrollment1.getStudent().getId().equals(sId)
                                             && studentEnrollment1.getSemester().equals(semester)) {
                                         if (studentEnrollment1.getCourse().getName().equals(courseName)) {
                                             studentEnrollManager.delete(studentEnrollment1);
-                                        } else {
-                                            break;
                                         }
                                     }
                                 }
@@ -92,58 +99,104 @@ public class Main {
                                 course1 = getCourse(c1, c2, c3, c4, c5, name);
                                 if (course1 == null) break;
                                 StudentEnrollment studentEnrollment1 = new StudentEnrollment(student1, course1, semester);
-                                studentEnrollManager.add(studentEnrollment1);
+                                studentEnrollManager.update(studentEnrollment1);
                                 break;
                             default:
+                                System.out.println("Invalid value!!");
                                 System.out.println("Back to main menu...");
                                 break;
                         }
+                        break;
                     }
+                    //Print Data report
                 case 3:
                     Scanner scan5 = new Scanner(System.in);
-                    System.out.print("1. Print all courses\n2. Print all students\n3. Print all courses in a semester\nWhat do you want to do? ");
+                    System.out.print("1. Print all courses\n2. Print all students\n3. Print all courses in a semester\n" +
+                            "0. Back to menu\nWhat do you want to do? ");
                     int option3 = scan5.nextInt();
                     switch (option3) {
+                        case 0:
+                            System.out.println("Back to main menu...");
+                            break;
+                        //Print all courses of a student
                         case 1:
                             Scanner scan6 = new Scanner(System.in);
                             System.out.print("Enter your student ID: ");
                             String sID = scan6.nextLine();
                             System.out.print("Which semester are you in? ");
                             String semester = scan6.nextLine();
-                            for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
-                                if (sID.equals(studentEnrollment1.getStudent().getId()) && semester.equals((studentEnrollment1.getSemester()))) {
-                                    System.out.println(studentEnrollment1.getCourse().getName());
+                            try {
+                                FileWriter fw = new FileWriter("Course of Student.csv");
+                                for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
+                                    if (sID.equals(studentEnrollment1.getStudent().getId()) && semester.equals((studentEnrollment1.getSemester()))) {
+                                        fw.write("Course ID: " + studentEnrollment1.getCourse().getId() + ","
+                                                + "Course Name: " + studentEnrollment1.getCourse().getName()
+                                                + "," + "Course Credit: " + studentEnrollment1.getCourse().getCredit() + "\n");
+                                    }
                                 }
+                                fw.close();
+                            } catch (IOException e) {
+                                System.out.println("Failed...");
                             }
                             break;
+                        //Print all students of the course
                         case 2:
                             Scanner scan7 = new Scanner(System.in);
                             System.out.print("Enter course name: ");
                             cName = scan7.nextLine();
                             System.out.print("Which semester? ");
                             semester = scan7.nextLine();
-                            for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
-                                if (cName.equals(studentEnrollment1.getCourse().getName()) && semester.equals((studentEnrollment1.getSemester()))) {
-                                    System.out.println(studentEnrollment1.getStudent().getName());
+                            try {
+                                FileWriter fw = new FileWriter("Student of course.csv");
+                                for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
+                                    if (cName.equals(studentEnrollment1.getCourse().getName()) && semester.equals((studentEnrollment1.getSemester()))) {
+                                        fw.write("Student: " + studentEnrollment1.getStudent().getName()
+                                                + "," + "BirthDate: " + studentEnrollment1.getStudent().getBirthDate() + "\n");
+                                    }
                                 }
+                                fw.close();
+                            } catch (IOException e) {
+                                System.out.println("Failed...");
                             }
+
                             break;
+                        //Print all courses in a semester
                         case 3:
                             Scanner scan8 = new Scanner(System.in);
                             System.out.print("Which semester are you in? ");
                             semester = scan8.nextLine();
+                            List<Course> courseList = new ArrayList<>();
                             for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
                                 if (semester.equals((studentEnrollment1.getSemester()))) {
-                                    System.out.println(studentEnrollment1.getCourse());
+                                    if (!courseList.contains(studentEnrollment1.getCourse())) {
+                                        courseList.add(studentEnrollment1.getCourse());
+                                    }
+                                } else {
+                                    System.out.println("No available course...");
                                 }
                             }
+
+                            try {
+                                FileWriter fw = new FileWriter("Course in a semester.csv");
+                                for (Course course1 : courseList) {
+                                    fw.write("Course ID: " + course1.getId()
+                                            + "," + "Course Name: " + course1.getName()
+                                            + "," + "Course Credit: " + course1.getCredit() + "\n");
+                                }
+                                fw.close();
+                            } catch (IOException e) {
+                                System.out.println("Failed...");
+                            }
+
                             break;
                         default:
+                            System.out.println("Invalid value !!");
                             break;
                     }
                     break;
                 default:
                     System.out.println("Invalid value !!");
+                    break;
             }
         } while (option != 0);
     }

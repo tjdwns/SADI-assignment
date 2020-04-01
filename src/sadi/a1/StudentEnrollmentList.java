@@ -2,9 +2,10 @@ package sadi.a1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public class StudentEnrollmentList implements StudentEnrollManager{
-    private List<StudentEnrollment> studentEnrollments = new ArrayList<>();
+public class StudentEnrollmentList implements StudentEnrollManager {
+    private List<StudentEnrollment> studentEnrollments = new CopyOnWriteArrayList<>();
 
     public List<StudentEnrollment> getStudentEnrollments() {
         return studentEnrollments;
@@ -16,8 +17,8 @@ public class StudentEnrollmentList implements StudentEnrollManager{
     }
 
     @Override
-    public void update() {
-
+    public void update(StudentEnrollment studentEnrollment) {
+        studentEnrollments.add(studentEnrollment);
     }
 
     @Override

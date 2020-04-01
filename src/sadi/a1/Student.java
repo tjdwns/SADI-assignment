@@ -40,14 +40,6 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public List<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
-
     @Override
     public String toString() {
         return "ID = " + id +
