@@ -26,8 +26,8 @@ public class StudentEnrollmentList implements StudentEnrollManager{
     }
 
     @Override
-    public String getAll() {
-        return null;
+    public List<StudentEnrollment> getAll() {
+        return studentEnrollments;
     }
 
     @Override

@@ -23,7 +23,7 @@ public class Main {
         System.out.println(c1 + "\n" + c2 + "\n" + c3 + "\n" + c4 + "\n" + c5);
         do {
             Scanner scan = new Scanner(System.in);
-            System.out.printf("\nWhat do you want to do?\n1. Enroll\n2. Update\n0. Quit\nEnter a number of the option: ");
+            System.out.printf("\nWhat do you want to do?\n1. Enroll\n2. Update\n3. Print Data\n0. Quit\nEnter a number of the option: ");
             option = scan.nextInt();
             System.out.println();
             switch (option) {
@@ -98,6 +98,48 @@ public class Main {
                                 System.out.println("Back to main menu...");
                                 break;
                         }
+                    }
+                case 3:
+                    Scanner scan5 = new Scanner(System.in);
+                    System.out.print("1. Print all courses\n2. Print all students\n3. Print all courses in a semester\nWhat do you want to do? ");
+                    int option3 = scan5.nextInt();
+                    switch (option3) {
+                        case 1:
+                            Scanner scan6 = new Scanner(System.in);
+                            System.out.print("Enter your student ID: ");
+                            String sID = scan6.nextLine();
+                            System.out.print("Which semester are you in? ");
+                            String semester = scan6.nextLine();
+                            for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
+                                if (sID.equals(studentEnrollment1.getStudent().getId()) && semester.equals((studentEnrollment1.getSemester()))) {
+                                    System.out.println(studentEnrollment1.getCourse().getName());
+                                }
+                            }
+                            break;
+                        case 2:
+                            Scanner scan7 = new Scanner(System.in);
+                            System.out.print("Enter course name: ");
+                            cName = scan7.nextLine();
+                            System.out.print("Which semester? ");
+                            semester = scan7.nextLine();
+                            for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
+                                if (cName.equals(studentEnrollment1.getCourse().getName()) && semester.equals((studentEnrollment1.getSemester()))) {
+                                    System.out.println(studentEnrollment1.getStudent().getName());
+                                }
+                            }
+                            break;
+                        case 3:
+                            Scanner scan8 = new Scanner(System.in);
+                            System.out.print("Which semester are you in? ");
+                            semester = scan8.nextLine();
+                            for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
+                                if (semester.equals((studentEnrollment1.getSemester()))) {
+                                    System.out.println(studentEnrollment1.getCourse());
+                                }
+                            }
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 default:

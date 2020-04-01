@@ -1,9 +1,11 @@
 package sadi.a1;
 
+import java.util.List;
+
 public interface StudentEnrollManager {
     public void add(StudentEnrollment studentEnrollment);
     public void update();
     public void delete(StudentEnrollment studentEnrollment);
-    public String getAll();
+    public List getAll();
     public String getOne();
 }
