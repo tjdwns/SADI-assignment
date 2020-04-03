@@ -32,7 +32,7 @@ public class StudentEnrollmentList implements StudentEnrollManager {
     }
 
     @Override
-    public String getOne() {
-        return null;
+    public StudentEnrollment getOne(int i) {
+        return studentEnrollments.get(i);
     }
 }
