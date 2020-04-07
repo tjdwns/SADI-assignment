@@ -32,7 +32,13 @@ public class StudentEnrollmentList implements StudentEnrollManager {
     }
 
     @Override
-    public StudentEnrollment getOne(int i) {
-        return studentEnrollments.get(i);
+    public StudentEnrollment getOne(String id) {
+        StudentEnrollment studentEnrollment = new StudentEnrollment(null, null, null);
+        for(StudentEnrollment studentEnrollment1: studentEnrollments){
+            if(studentEnrollment1.getStudent().getId().equals(id)){
+            studentEnrollment = studentEnrollment1;
+            }
+        }
+        return studentEnrollment;
     }
 }

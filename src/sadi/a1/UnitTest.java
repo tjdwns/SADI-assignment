@@ -35,7 +35,7 @@ public class UnitTest {
         Assert.assertSame(studentEnrollment.getCourse(), c2);
         Assert.assertSame(studentEnrollment.getStudent(), s2);
         studentEnrollManager.update(studentEnrollment);
-        Assert.assertSame(studentEnrollManager.getOne(1), studentEnrollment);
+        Assert.assertSame(studentEnrollManager.getOne("s123457"), studentEnrollment);
         Assert.assertSame(studentEnrollManager.getAll(), ((StudentEnrollmentList) studentEnrollManager).getStudentEnrollments());
         studentEnrollManager.delete(studentEnrollment);
     }

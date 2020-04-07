@@ -46,7 +46,8 @@ public class Main {
                     if (student == null) break;
                     System.out.print("Enter semester: ");
                     String sem = scan1.nextLine();
-                    System.out.print("Enter course name: ");
+                    System.out.print("Enter number of courses you want to enroll: ");
+                    int value = scan1.nextInt();
                     String cName = scan1.nextLine();
                     Course course = getCourse(c1, c2, c3, c4, c5, cName);
                     if (course == null) break;
