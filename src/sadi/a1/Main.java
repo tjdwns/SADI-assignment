@@ -3,7 +3,6 @@ package sadi.a1;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -11,7 +10,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
         Student s1 = new Student("s123456", "Tom", "1999-11-11");
         Student s2 = new Student("s123457", "Tim", "1998-12-11");
         Student s3 = new Student("s123458", "Andy", "2000-05-11");
@@ -46,8 +44,7 @@ public class Main {
                     if (student == null) break;
                     System.out.print("Enter semester: ");
                     String sem = scan1.nextLine();
-                    System.out.print("Enter number of courses you want to enroll: ");
-                    int value = scan1.nextInt();
+                    System.out.print("Enter name of a course you want to enroll: ");
                     String cName = scan1.nextLine();
                     Course course = getCourse(c1, c2, c3, c4, c5, cName);
                     if (course == null) break;
@@ -71,10 +68,11 @@ public class Main {
                         System.out.print("\nWhat do you want to do?\n1. Delete\n2. Add\n0. Back to menu\nEnter a number of the option: ");
                         int option2 = scan2.nextInt();
                         switch (option2) {
-                            //Delete function
+                            //Back to main menu
                             case 0:
                                 System.out.println("Back to main menu...");
                                 break;
+                            //Delete function
                             case 1:
                                 Scanner scan3 = new Scanner(System.in);
                                 System.out.print("Choose course to delete: ");
@@ -109,7 +107,7 @@ public class Main {
                         }
                         break;
                     }
-                    //Print Data report
+                //Print Data report
                 case 3:
                     Scanner scan5 = new Scanner(System.in);
                     System.out.print("1. Print all courses\n2. Print all students\n3. Print all courses in a semester\n" +

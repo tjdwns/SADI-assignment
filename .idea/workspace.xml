@@ -4,10 +4,7 @@
     <list default="true" id="2f4897fe-fcd0-470f-9ac7-63d715ae38fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sadi/a1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sadi/a1/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sadi/a1/StudentEnrollManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/StudentEnrollManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sadi/a1/StudentEnrollmentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/StudentEnrollmentList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sadi/a1/UnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/UnitTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,7 @@
       <workItem from="1585893497546" duration="7952000" />
       <workItem from="1586140713075" duration="603000" />
       <workItem from="1586192375032" duration="1887000" />
-      <workItem from="1586269702533" duration="2302000" />
+      <workItem from="1586269702533" duration="5404000" />
     </task>
     <servers />
   </component>
