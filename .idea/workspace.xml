@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2f4897fe-fcd0-470f-9ac7-63d715ae38fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course in a semester.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course of Student.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Course of Student.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Student of course.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Student of course.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sadi/a1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sadi/a1/StudentEnrollManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/StudentEnrollManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sadi/a1/StudentEnrollmentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/StudentEnrollmentList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sadi/a1/UnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sadi/a1/UnitTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +20,7 @@
     <option name="myAddOrReplace" value="1" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="144" />
+    <option name="myElementSize" value="21" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,7 +49,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.UnitTest.unitTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="sadi.a1.Main" />
       <module name="COSC2440_A1_s3726123" />
@@ -88,9 +93,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UnitTest.unitTest" />
         <item itemvalue="JUnit.UnitTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -109,7 +114,11 @@
       <workItem from="1585893497546" duration="7952000" />
       <workItem from="1586140713075" duration="603000" />
       <workItem from="1586192375032" duration="1887000" />
-      <workItem from="1586269702533" duration="5404000" />
+      <workItem from="1586269702533" duration="5680000" />
+      <workItem from="1586339632407" duration="1719000" />
+      <workItem from="1586343172346" duration="273000" />
+      <workItem from="1586399380073" duration="620000" />
+      <workItem from="1586589059155" duration="5762000" />
     </task>
     <servers />
   </component>
@@ -121,56 +130,60 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1585749443732" />
-    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1586270929707">
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1586594645359">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1586270929707" />
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1586594645359" />
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1586271888988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1586271888988" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1586141310454">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1586399393266">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586141310454" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1586271015327">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586399393266" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1586594857122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586271015327" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1586271015327">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586594857122" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1586594857122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586271015327" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1586271015327">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586594857122" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1586594857122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586271015327" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1586271015327">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586594857122" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1586594857122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586271015327" />
-    <state x="459" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586269708927">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586594857122" />
+    <state x="459" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586399381044">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="459" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586269708927" />
+    <state x="459" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586399381043" />
     <state x="488" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585893747766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1585893747766" />
-    <state x="499" y="177" key="extract.method.dialog" timestamp="1585586784470">
+    <state x="499" y="177" key="extract.method.dialog" timestamp="1586593625945">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="177" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1585586784470" />
+    <state x="499" y="177" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1586593625945" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1586592870095">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1586592870095" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1585750523044">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585750523044" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COSC2440_A1_s3726123$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1585898190242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/COSC2440_A1_s3726123$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1586593962893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>sadi.a1.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/COSC2440_A1_s3726123$UnitTest_unitTest.ic" NAME="UnitTest.unitTest Coverage Results" MODIFIED="1586271015285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/COSC2440_A1_s3726123$UnitTest_unitTest.ic" NAME="UnitTest.unitTest Coverage Results" MODIFIED="1586594762938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>sadi.a1.*</FILTER>
     </SUITE>
   </component>

@@ -3,16 +3,14 @@ package sadi.a1;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UnitTest {
     @Test
-    public void unitTest() throws FileNotFoundException {
-        String[] args = null;
+    public void unitTest(){
         StudentEnrollManager studentEnrollManager = new StudentEnrollmentList();
+        StudentEnrollmentList studentEnrollments = new StudentEnrollmentList();
         Student s1 = new Student("s123456", "Tom", "1999-11-11");
         Student s2 = new Student("s123457", "Tim", "1998-12-11");
         Course c1 = new Course("COSC2440", "SADI", 12);
@@ -31,12 +29,13 @@ public class UnitTest {
                 "Semester: 2019A", studentEnrollment.toString());
         studentEnrollManager.add(studentEnrollment);
         studentEnrollment = new StudentEnrollment(s2, c2, "2020A");
+        studentEnrollments.add(studentEnrollment);
         Assert.assertEquals("2020A", studentEnrollment.getSemester());
         Assert.assertSame(studentEnrollment.getCourse(), c2);
         Assert.assertSame(studentEnrollment.getStudent(), s2);
         studentEnrollManager.update(studentEnrollment);
-        Assert.assertSame(studentEnrollManager.getOne("s123457"), studentEnrollment);
         Assert.assertSame(studentEnrollManager.getAll(), ((StudentEnrollmentList) studentEnrollManager).getStudentEnrollments());
         studentEnrollManager.delete(studentEnrollment);
-    }
-}
+        studentEnrollments.delete(studentEnrollment);
+        Assert.assertEquals(studentEnrollManager.getOne("s123457"), studentEnrollments.getAll());
+    }}

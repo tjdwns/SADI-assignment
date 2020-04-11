@@ -5,6 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class StudentEnrollmentList implements StudentEnrollManager {
     private List<StudentEnrollment> studentEnrollments = new CopyOnWriteArrayList<>();
+    private List<StudentEnrollment> studentEnrollments1 = new CopyOnWriteArrayList<>();
 
     public List<StudentEnrollment> getStudentEnrollments() {
         return studentEnrollments;
@@ -31,13 +32,12 @@ public class StudentEnrollmentList implements StudentEnrollManager {
     }
 
     @Override
-    public StudentEnrollment getOne(String id) {
-        StudentEnrollment studentEnrollment = new StudentEnrollment(null, null, null);
+    public List<StudentEnrollment> getOne(String id) {
         for(StudentEnrollment studentEnrollment1: studentEnrollments){
             if(studentEnrollment1.getStudent().getId().equals(id)){
-            studentEnrollment = studentEnrollment1;
+                studentEnrollments1.add(studentEnrollment1);
             }
         }
-        return studentEnrollment;
+        return studentEnrollments1;
     }
 }

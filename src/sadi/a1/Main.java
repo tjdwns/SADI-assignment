@@ -22,9 +22,15 @@ public class Main {
         Course c5 = new Course("COSC2720", "Web Programming", 12);
         StudentEnrollManager studentEnrollManager = new StudentEnrollmentList();
         int option = 0;
+        int duplicate = 0;
         System.out.println("Samples: ");
         System.out.println(s1 + "\n" + s2 + "\n" + s3 + "\n" + s4 + "\n" + s5);
         System.out.println(c1 + "\n" + c2 + "\n" + c3 + "\n" + c4 + "\n" + c5);
+        StudentEnrollment studentEnrollmentSample = new StudentEnrollment(s1, c2, "2020A");
+        studentEnrollManager.add(studentEnrollmentSample);
+        for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
+                System.out.println(studentEnrollment1);
+        }
         do {
             Scanner scan = new Scanner(System.in);
             System.out.printf("\nWhat do you want to do?\n1. Enroll\n2. Update\n3. Print Data\n0. Quit\nEnter a number of the option: ");
@@ -49,7 +55,12 @@ public class Main {
                     Course course = getCourse(c1, c2, c3, c4, c5, cName);
                     if (course == null) break;
                     StudentEnrollment studentEnrollment = new StudentEnrollment(student, course, sem);
-                    studentEnrollManager.add(studentEnrollment);
+                    duplicate = getDuplicate((StudentEnrollmentList) studentEnrollManager, duplicate, studentEnrollment);
+                    if (duplicate == 1){
+                        studentEnrollManager.add(studentEnrollment);}
+                    else {
+                        System.out.println("Already Enrolled!!");
+                    }
                     break;
                 //Update
                 case 2:
@@ -60,8 +71,8 @@ public class Main {
                         System.out.print("Enter the semester you are in: ");
                         String semester = scan2.nextLine();
                         System.out.println();
-                        for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
-                            if (studentEnrollment1.getStudent().getId().equals(sId) && studentEnrollment1.getSemester().equals(semester)) {
+                        for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getOne(sId)) {
+                            if (studentEnrollment1.getSemester().equals(semester)) {
                                 System.out.println(studentEnrollment1);
                             }
                         }
@@ -97,8 +108,13 @@ public class Main {
                                 Course course1;
                                 course1 = getCourse(c1, c2, c3, c4, c5, name);
                                 if (course1 == null) break;
-                                StudentEnrollment studentEnrollment1 = new StudentEnrollment(student1, course1, semester);
-                                studentEnrollManager.update(studentEnrollment1);
+                                StudentEnrollment studentEnrollment2 = new StudentEnrollment(student1, course1, semester);
+                                duplicate = getDuplicate((StudentEnrollmentList) studentEnrollManager, duplicate, studentEnrollment2);
+                                if (duplicate == 1){
+                                    studentEnrollManager.add(studentEnrollment2);}
+                                else {
+                                    System.out.println("Already Enrolled!!");
+                                }
                                 break;
                             default:
                                 System.out.println("Invalid value!!");
@@ -126,8 +142,8 @@ public class Main {
                             String semester = scan6.nextLine();
                             try {
                                 FileWriter fw = new FileWriter("Course of Student.csv");
-                                for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList) studentEnrollManager).getAll()) {
-                                    if (sID.equals(studentEnrollment1.getStudent().getId()) && semester.equals((studentEnrollment1.getSemester()))) {
+                                for (StudentEnrollment studentEnrollment1 : ((StudentEnrollmentList)studentEnrollManager).getOne(sID)) {
+                                    if (semester.equals((studentEnrollment1.getSemester()))) {
                                         fw.write("Course ID: " + studentEnrollment1.getCourse().getId() + ","
                                                 + "Course Name: " + studentEnrollment1.getCourse().getName()
                                                 + "," + "Course Credit: " + studentEnrollment1.getCourse().getCredit() + "\n");
@@ -176,7 +192,7 @@ public class Main {
                             }
 
                             try {
-                                FileWriter fw = new FileWriter("Course in a semester.csv");
+                                FileWriter fw = new FileWriter("Course in a semester-"+ semester +".csv");
                                 for (Course course1 : courseList) {
                                     fw.write("Course ID: " + course1.getId()
                                             + "," + "Course Name: " + course1.getName()
@@ -198,6 +214,24 @@ public class Main {
                     break;
             }
         } while (option != 0);
+    }
+
+    private static int getDuplicate(StudentEnrollmentList studentEnrollManager, int duplicate, StudentEnrollment studentEnrollment2) {
+        for (StudentEnrollment studentEnrollment1 : studentEnrollManager.getAll()) {
+            if (!studentEnrollment1.getStudent().getId().equals(studentEnrollment2.getStudent().getId())){
+                duplicate = 1;
+            }
+            else if(!studentEnrollment1.getSemester().equals(studentEnrollment2.getSemester())) {
+                duplicate = 1;
+            }
+            else if (!studentEnrollment1.getCourse().getName().equals(studentEnrollment2.getCourse().getName())) {
+                duplicate = 1;
+            }
+            else{
+                duplicate = 0;
+            }
+        }
+        return duplicate;
     }
 
     private static Course getCourse(Course c1, Course c2, Course c3, Course c4, Course c5, String cName) {

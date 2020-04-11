@@ -7,5 +7,5 @@ public interface StudentEnrollManager {
     public void update(StudentEnrollment studentEnrollment);
     public void delete(StudentEnrollment studentEnrollment);
     public List getAll();
-    public StudentEnrollment getOne(String id);
+    public List getOne(String id);
 }
